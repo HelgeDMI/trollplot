@@ -7,7 +7,8 @@ from BaseHTTPServer import HTTPServer
 from SimpleHTTPServer import SimpleHTTPRequestHandler
 
 BASE = resource_filename('globeplot', '')
-ROOT = os.path.join(os.path.split(BASE)[0], 'webgl_globe')
+# ROOT = os.path.join(os.path.split(BASE)[0], 'webgl_globe')
+ROOT = os.path.join(BASE, 'webgl_globe')
 
 # modify this to add additional routes
 ROUTES = (

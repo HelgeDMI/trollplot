@@ -69,13 +69,18 @@ class GlobePlot(object):
                        code_link='http://...'):
         base = resource_filename('globeplot', '')
 
-        base = os.path.split(base)[0]
+        # base = os.path.split(base)[0]
         template_file = os.path.join(base, 'webgl_globe',
                                      'index_template_small.html')
+        print(template_file)
+        with open('/tmp/oi.txt', 'w') as f:
+            f.write(template_file)
+
         rendered_file = os.path.join(base, 'webgl_globe', 'index.html')
         data_list = json.dumps(data)
 
         html_path = os.path.split(template_file)[0]
+        print(html_path)
         env = Environment(loader=FileSystemLoader(html_path))
 
         template = env.get_template(os.path.split(template_file)[1])

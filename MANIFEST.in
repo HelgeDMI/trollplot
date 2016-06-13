@@ -1,14 +1,3 @@
-include webgl_globe/third-party/Three/Detector.js
-include webgl_globe/third-party/Three/RequestAnimationFrame.js
-include webgl_globe/third-party/Three/ThreeExtras.js
-include webgl_globe/third-party/Three/ThreeWebGL.js
-include webgl_globe/third-party/Three/LICENSE
-include webgl_globe/third-party/Tween.js
-include webgl_globe/globe.js
-include webgl_globe/index_template.html
-include webgl_globe/index_template_small.html
-include webgl_globe/loading.gif
-include webgl_globe/world.jpg
 include README.md
 include LICENSE.md
 include requirements.txt
