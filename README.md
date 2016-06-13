@@ -117,3 +117,19 @@ def _generate_html(self, data, title='Globe Plot',
 
     return html
 ```
+
+
+I Want to See an Example Quickly!
+=================================
+
+There is an example plot with the OSI SAF ice concentration corresponding to the June 8th 2016 in the `doc/` folder.
+
+To view this locally do the following:
+
+```bash
+git clone https://github.com/HelgeDMI/trollplot.git
+cd /path/to/trollplot/doc/example_plot/
+python -m SimpleHTTPServer
+```
+
+Open your browser, which has to support WebGL, on `http://localhost:8000` and you will see the plot.
