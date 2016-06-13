@@ -13,16 +13,14 @@ For the moment you cannot install the program via pip or similar.
 Clone the repository:
 
 
-```
-bash
+```bash
   git clone https://github.com/HelgeDMI/trollplot.git
 
 ```
 
 Subsequently, add `globeplot` to your Python path. In case you are using `virtualenv-wrapper`:
 
-```
-bash
+```bash
   add2virtualenv /path/to/trollplot
 ```
 
@@ -44,8 +42,7 @@ Usage
 =====
 
 
-```
-python
+```python
 import numpy as np
 from globeplot.plotting import GlobePlot
 
@@ -72,8 +69,7 @@ To come...
 
 GlobePlot, is a thin Python wrapper around WebGL Globe. It populates an HTML template (Jinja2) with a JSON list of latitude, longitude and numerical values, which is generated out of one- or two-dimensional NumPy arrays. In the following is a snippet of the `index_template.html`. Note `{{data_list}}`, which is a place holder for the array, which is generated out od the NumPy arrays.
 
-```
-javascript
+```javascript
 var loadData = function() {
     document.getElementById('load').innerHTML = 'Loading...';
     var data = {{data_list}};
@@ -88,8 +84,7 @@ var loadData = function() {
 
 The following snippet of `plotting.py` shows the function, which renders the HTML template. In particular `data_list = json.dumps(data)` dumps a JSON array of latitude, longitudes and values into the HTML template.
 
-```
-python
+```python
 def _generate_html(self, data, title='Globe Plot',
                    creator='GlobePlot', creator_addr='http://...',
                    code_link='http://...'):
