@@ -60,7 +60,7 @@ class GlobePlot(object):
         concat = np.transpose(np.array((self.lats, self.lons, self.data)))
 
         # filter... move this out of here
-        concat = concat[concat[:, 2] > 0]
+        # concat = concat[concat[:, 2] > 0]
 
         return concat.flatten().tolist()
 

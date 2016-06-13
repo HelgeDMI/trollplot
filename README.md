@@ -15,7 +15,7 @@ Clone the repository:
 
 ```
 #!bash
-  hg clone https://ikkjo@bitbucket.org/ikkjo/globeplot
+  git clone https://github.com/HelgeDMI/trollplot.git
 
 ```
 
@@ -23,7 +23,7 @@ Subsequently, add `globeplot` to your Python path. In case you are using `virtua
 
 ```
 #!bash
-  add2virtualenv /path/to/globeplot
+  add2virtualenv /path/to/trollplot
 ```
 
 Requirements
@@ -62,4 +62,55 @@ plot.append(more_lats, more_lons, more_values)
 
 plot.show(title='A GlobePlot', creator='You', creator_addr='http://...',
           code_link='http://...')
+```
+
+How does it Work?
+=================
+
+
+To come...
+
+GlobePlot, is a thin Python wrapper around WebGL Globe. It populates an HTML template (Jinja2) with a JSON list of latitude, longitude and numerical values, which is generated out of one- or two-dimensional NumPy arrays. In the following is a snippet of the `index_template.html`. Note `{{data_list}}`, which is a place holder for the array, which is generated out od the NumPy arrays.
+
+```
+#!javascript
+var loadData = function() {
+    document.getElementById('load').innerHTML = 'Loading...';
+    var data = {{data_list}};
+    window.data = data;
+    globe.clearData();
+    globe.addData(data);
+    globe.createPoints();
+    globe.animate();
+    document.getElementById('load').innerHTML = ' ';
+};
+```
+
+The following snippet of `plotting.py` shows the function, which renders the HTML template. In particular `data_list = json.dumps(data)` dumps a JSON array of latitude, longitudes and values into the HTML template.
+
+```
+#!python
+def _generate_html(self, data, title='Globe Plot',
+                   creator='GlobePlot', creator_addr='http://...',
+                   code_link='http://...'):
+    base = resource_filename('globeplot', '')
+
+    base = os.path.split(base)[0]
+    template_file = os.path.join(base, 'webgl_globe',
+                                 'index_template_small.html')
+    rendered_file = os.path.join(base, 'webgl_globe', 'index.html')
+    data_list = json.dumps(data)
+
+    html_path = os.path.split(template_file)[0]
+    env = Environment(loader=FileSystemLoader(html_path))
+
+    template = env.get_template(os.path.split(template_file)[1])
+    html = template.render(title=title, data_list=data_list,
+                           creator=creator, creator_addr=creator_addr,
+                           code_link=code_link)
+
+    with open(rendered_file, 'w') as f:
+        f.write(html)
+
+    return html
 ```
