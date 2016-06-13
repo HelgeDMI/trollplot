@@ -76,7 +76,7 @@ How does it Work?
 =================
 
 
-`trollplot, is a thin Python wrapper around WebGL Globe. It populates an HTML template (Jinja2) with a JSON list of latitude, longitude and numerical values, which is generated out of one- or two-dimensional NumPy arrays. In the following is a snippet of the `index_template.html`. Note `{{data_list}}`, which is a place holder for the array, which is generated out od the NumPy arrays.
+`trollplot`, is a thin Python wrapper around WebGL Globe. It populates an HTML template (Jinja2) with a JSON list of latitude, longitude and numerical values, which is generated out of one- or two-dimensional NumPy arrays. In the following is a snippet of the `index_template.html`. Note `{{data_list}}`, which is a place holder for the array, which is generated out od the NumPy arrays.
 
 ```javascript
 var loadData = function() {
