@@ -14,8 +14,11 @@ Currently, the project is not on PyPi. So either install it manually by
 ```bash
 pip install trollplot --no-index --find-links file:///path/to/trollplot/dist/trollplot-1.0.tar.gz
 ```
-
-
+or 
+```bash
+cd /path/to/trollplot/dist/trollplot-1.0.tar.gz
+python setup.py install
+```
 
 
 Alternatively, you can clone the repository:
@@ -133,3 +136,5 @@ python -m SimpleHTTPServer
 ```
 
 Open your browser, which has to support WebGL, on `http://localhost:8000` and you will see the plot.
+
+Additionally, there is an IPython notebook `doc/Globe Plot Example.ipynb` which you can use to experiment with the plots. Note, for this example notebook you need to install the `netcdf4` module.
