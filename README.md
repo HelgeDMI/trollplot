@@ -8,20 +8,28 @@ This is a small Python project, which allows you to plot geo-located data onto a
 Install
 =======
 
-For the moment you cannot install the program via pip or similar.
-
-Clone the repository:
+Currently, the project is not on PyPi. So either install it manually by 
 
 
 ```bash
-  git clone https://github.com/HelgeDMI/trollplot.git
+pip install trollplot --no-index --find-links file:///path/to/trollplot/dist/trollplot-1.0.tar.gz
+```
+
+
+
+
+Alternatively, you can clone the repository:
+
+
+```bash
+git clone https://github.com/HelgeDMI/trollplot.git
 
 ```
 
 Subsequently, add `globeplot` to your Python path. In case you are using `virtualenv-wrapper`:
 
 ```bash
-  add2virtualenv /path/to/trollplot
+add2virtualenv /path/to/trollplot
 ```
 
 Requirements
@@ -31,8 +39,8 @@ Python 2.7 Note, the HTTP server will not work with Python 3 directly.
 
 You will need to have the following Python modules to be installed in your environment:
 ```
-  jinja2
-  ipython notebook
+Jinja2
+ipython notebook
 ```
 
 To display the plots you will need a browser which supports WebGL. I tested Firefox, Chromium, Safari, and Opera. They all work, but it seems that WebKit-based browsers are performing better. The program is only tested on Ubuntu and OS X, not on Windows.
